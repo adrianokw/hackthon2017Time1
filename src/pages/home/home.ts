@@ -19,6 +19,8 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
     this.usuario = new Usuario();
     new TrocaApi(http).obter().then(trocas => {
+      window.localStorage.setItem("usuario.id", this.usuario.id);
+      window.localStorage.setItem("usuario.nome", this.usuario.nome);
       this.trocas = trocas;
       this.helper = helper;
     });
@@ -31,7 +33,6 @@ export class HomePage {
   itemSelected(troca: string, usuario: Usuario) {
     this.navCtrl.push(DetalhesDaTroca,{
       item: troca,
-      usuario: usuario
     });
   }
 }

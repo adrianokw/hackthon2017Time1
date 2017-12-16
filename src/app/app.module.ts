@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetalhesDaTroca } from '../pages/detalhesDaTroca/detalhesDaTroca';
-import { ListPage } from '../pages/list/list';
+import { PropostasDoMeuInteressePage } from '../pages/propostasdemeuinteresse/propostasdemeuinteresse';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +16,7 @@ import { TrocaApi } from './api/troca.api';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
+    PropostasDoMeuInteressePage,
     DetalhesDaTroca
   ],
   imports: [
@@ -28,7 +28,7 @@ import { TrocaApi } from './api/troca.api';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    PropostasDoMeuInteressePage,
     DetalhesDaTroca
   ],
   providers: [
