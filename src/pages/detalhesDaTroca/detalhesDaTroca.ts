@@ -27,7 +27,7 @@ export class DetalhesDaTroca {
         return new Promise((resolve, reject) => {
             let url = this.API_URL + 'MarcarInteresse';
             let parametros = { id: proposta.Id, usuario: {id: id, nome: nome} };
-
+            console.log(parametros);
             this.http.post(url, parametros).subscribe((result: any) => {
             }, (error) => {
               reject(error);
