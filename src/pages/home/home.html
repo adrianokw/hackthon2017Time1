@@ -1,7 +1,9 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle *ngIf="!mostrarBarraDePesquisa"><ion-icon name="menu"></ion-icon></button>
-    <ion-title *ngIf="!mostrarBarraDePesquisa">Guardiões do Bem</ion-title>
+    <ion-title *ngIf="!mostrarBarraDePesquisa">
+      <img src="assets/imgs/logo/guardioes-do-bem.svg" alt="Guardiões do Bem" class="imagem imagem-192">
+    </ion-title>
     <ion-searchbar #searchbar (ionInput)="pesquisar($event)"
                    *ngIf="mostrarBarraDePesquisa" 
                    [showCancelButton]="true" 
@@ -18,19 +20,19 @@
       <button ion-item *ngFor="let troca of trocas" (click)="itemSelected(troca, usuario)">
         <ion-card>
           <ion-card-header>
+            <p class="titulo u-caixa-alta">Benefícios:</p>
             <img [src]="helper.obterFoto(troca.Fotos)"/>
-            <div>
-              <p>Benefícios:</p>
-              <ul *ngFor="let b of troca.Beneficios" >
-                <li>{{ b }}</li>
+            <div class="card-header-title-group">
+              <ul class="list-card">
+                <li class="list-card-item" *ngFor="let b of troca.Beneficios" >{{ b }}</li>
               </ul>
             </div>
           </ion-card-header>
           <ion-card-content>
-            <div>
-              <p>Em troca de:</p>
+            <p class="subtitulo subtitulo 6">Em troca de:</p>
+            <h2 class="titulo titulo-2">
               {{ troca.Necessidade }}
-            </div>
+            </h2>
             <div>
               <div>
                 <p>Solicitante:</p>
