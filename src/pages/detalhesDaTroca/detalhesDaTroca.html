@@ -20,21 +20,21 @@
         <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
     </div>
     <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Benefícios:</span>
+        Benefícios:
         <ul>
             <li *ngFor="let beneficio of troca.Beneficios">{{ beneficio }}</li>
         </ul>
     </div>
-    <p><span style="color:#777;">Em troca de:</span> {{ troca.Necessidade }}</p>
-    <p><span style="color:#777;">Solicitante:</span> {{ troca.Solicitante.Nome }} (a {{ troca.Distancia }} de você</p>
+    <p>Em troca de: {{ troca.Necessidade }}</p>
+    <p>Solicitante: {{ troca.Solicitante.Nome }} (a {{ troca.Distancia }} de você</p>
     <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Condições:</span>
+        Condições:
         <ul>
             <li *ngFor="let condicao of troca.Condicoes">{{ condicao }}</li>
         </ul>
     </div>
     <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Tipo:</span>
+        Tipo:
         <ul>
             <li *ngFor="let tipo of troca.Tipos">{{ tipo }}</li>
         </ul>

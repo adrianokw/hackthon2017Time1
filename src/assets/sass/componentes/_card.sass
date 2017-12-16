@@ -1,0 +1,29 @@
+.card
+    margin: 0
+    width: 100%
+    border: 0 solid transparent
+
+    .card-header
+        margin: 0
+        padding: 0
+        background-color: $cor-preta
+        position: relative
+
+        img
+            opacity: .3
+            background-blend-mode: multiply
+
+        & > div
+            background-color: $cor-branca
+
+    .card-header-title-group
+        position: absolute
+        margin: 1rem
+        z-index: 2
+        color: $cor-branca
+        top: 0
+        left: 0
+        background-color: transparent !important
+
+        .titulo
+            color: $cor-secundaria

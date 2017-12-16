@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TrocaApi } from '../../app/api/troca.api';
 import { DetalhesDaTroca } from '../detalhesDaTroca/detalhesDaTroca';
+import { Serializer } from '@angular/compiler/src/i18n/serializers/serializer';
 import { Http } from '@angular/http'
 import { Helper } from '../../app/api/helper'
 import { Usuario } from '../../app/api/usuario';
@@ -14,6 +15,7 @@ import { Usuario } from '../../app/api/usuario';
 
 export class HomePage {
   trocas: any;
+  public mostrarBarraDePesquisa: boolean = false;
   usuario: any;
 
   constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
@@ -34,5 +36,9 @@ export class HomePage {
     this.navCtrl.push(DetalhesDaTroca,{
       item: troca,
     });
+  }
+
+  public togglePesquisa(): void {
+    this.mostrarBarraDePesquisa = !this.mostrarBarraDePesquisa;
   }
 }

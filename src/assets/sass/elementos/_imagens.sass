@@ -1,0 +1,10 @@
+$tamanhos: 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 258, 396, 512
+
+.imagem
+    @each $tamanho in $tamanhos
+        &-#{$tamanho}
+            width: #{$tamanho}px
+            
+        &-#{$tamanho}x#{$tamanho}
+            width: #{$tamanho}px
+            height: #{$tamanho}px
