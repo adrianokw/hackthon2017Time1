@@ -3,44 +3,43 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Troca</ion-title>
+        <ion-title>Meus interesses</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding="true" class="has-header">
-    <!-- <div>
-        <p>Foto {{ troca.propostasocial.Id }}</p>
-        <ion-slides pager="true">
-            <ion-slide *ngFor="let foto of troca.propostasocial.Fotos">
-                <img src="{{ foto.url }}"/>
-            </ion-slide>
-        </ion-slides>
-    </div>
-    <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
-        <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-    </div>
-    <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Benefícios:</span>
-        <ul>
-            <li *ngFor="let beneficio of troca.propostasocial.Beneficios">{{ beneficio }}</li>
-        </ul>
-    </div>
-    <p><span style="color:#777;">Em troca de:</span> {{ troca.propostasocial.Necessidade }}</p>
-    <p><span style="color:#777;">Solicitante:</span> {{ troca.propostasocial.Solicitante.Nome }} (a {{ troca.propostasocial.Distancia }} de você</p>
-    <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Condições:</span>
-        <ul>
-            <li *ngFor="let condicao of troca.propostasocial.Condicoes">{{ propostasocial.condicao }}</li>
-        </ul>
-    </div>
-    <div class="show-list-numbers-and-dots">
-        <span style="color:#777;">Tipo:</span>
-        <ul>
-            <li *ngFor="let tipo of troca.propostasocial.Tipos">{{ propostasocial.tipo }}</li>
-        </ul>
-    </div>
-    <p>{{ troca.propostasocial.Local.Endereco }}
-        <button class="">Abrir endereço no mapa</button>
-    </p> -->
-    <button class="" (click)="MarcarInteresse(troca, usuario)">Tenho interesse</button>
+        <ion-list>
+            <button ion-item *ngFor="let interesse of interesses" (click)="itemSelected(interesse, usuario)">
+                <ion-card>
+                <ion-card-header>
+                    <img [src]="helper.obterFoto(interesse.PropostaSocial.Fotos)"/>
+                    <div class="card-header-title-group">
+        
+                    <div class="u-alinhado-ao-centro">
+                    <div class="titulo titulo-3 u-remover-margem u-remover-padding u-texto-branco">
+                        {{ interesse.PropostaSocial.Solicitante.Nome }} EE Domingos Gonçalves Gomes
+                    </div>
+                    <p class="titulo titulo-2 u-caixa-alta u-texto-laranja">Precisa da sua ajuda para:</p>
+                    <h2 class="titulo titulo-2 u-remover-margem u-remover-padding u-texto-branco">
+                        {{ interesse.PropostaSocial.Necessidade }}
+                    </h2>
+                    <p class="u-margem">
+                        <span>
+                            <img src="assets/imgs/map.svg" alt="" class="imagem imagem-16 u-inline local">
+                        </span>
+                        <span class="u-block u-texto-branco"><strong>{{ interesse.PropostaSocial.Distancia }} 300m</strong> de você</span>
+                    </p>
+                    </div>
+                </div>
+                </ion-card-header>
+                <ion-card-content>
+                    <p class="titulo u-caixa-alta">Ajudando você pode:</p>
+                    <ul class="list-card">
+                    <li class="list-card-item" *ngFor="let b of interesse.PropostaSocial.Beneficios" >{{ b }}</li>
+                    </ul>
+                    <button ion-button full color="secondary">Me interessei</button>
+                </ion-card-content>
+                </ion-card>
+            </button>
+        </ion-list>
 </ion-content>

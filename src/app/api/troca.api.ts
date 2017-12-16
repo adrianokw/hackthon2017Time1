@@ -26,6 +26,7 @@ export class TrocaApi {
       let url = this.API_URL + 'interesses?id=' + usuario.id;
       console.log(url);
       this.http.get(url).subscribe((result: any) => {
+          console.log(result.json());
           resolve(result.json());
       }, (error) => {
         reject(error.json());

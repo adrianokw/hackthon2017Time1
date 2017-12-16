@@ -3,25 +3,30 @@ import { NavController, NavParams } from 'ionic-angular';
 import { TrocaApi } from '../../app/api/troca.api';
 import { Usuario } from '../../app/api/usuario';
 import { Http } from '@angular/http'
+import { Helper } from '../../app/api/helper'
 
 @Component({
     selector: 'page-propostas-de-meu-interesse',
     templateUrl: 'propostasdemeuinteresse.html',
+    providers: [Helper]
+
   })
 
 export class PropostasDoMeuInteressePage {
-    public trocas: any;
+    public interesses: any;
     public usuario: any;
     private API_URL = 'http://localhost:3000/'
 
-    constructor(public navCtrl: NavController, public http: Http) {
-      let usuario = new Usuario();
-      usuario.id = window.localStorage.getItem("usuario.id");
-      usuario.nome = window.localStorage.getItem("usuario.nome");
+    constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
+      this.helper = helper;
+      this.usuario = new Usuario();
+      console.log(this.usuario);
+      console.log(window.localStorage.getItem("usuario.id"));
+      this.usuario.id = window.localStorage.getItem("usuario.id");
+      this.usuario.nome = window.localStorage.getItem("usuario.nome");
 
-      new TrocaApi(this.http).ObterInteresses(usuario).then(trocas => {
-        console.log(trocas);
-        this.trocas = trocas;
+      new TrocaApi(this.http).ObterInteresses(this.usuario).then(interesses => {
+        this.interesses = interesses;
       });
     }
 }
