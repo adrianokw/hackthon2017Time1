@@ -19,7 +19,6 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
     this.usuario = new Usuario();
     new TrocaApi(http).obter().then(trocas => {
-      console.log('asdfasdfasdfasdfasdf');
       this.trocas = trocas;
       this.helper = helper;
     });
@@ -30,7 +29,6 @@ export class HomePage {
   }
 
   itemSelected(troca: string, usuario: Usuario) {
-    console.log(troca);
     this.navCtrl.push(DetalhesDaTroca,{
       item: troca,
       usuario: usuario

@@ -9,7 +9,7 @@
 
 <ion-content padding="true" class="has-header">
     <div>
-        <p>Foto </p>
+        <p>Foto {{ troca.Id }}</p>
         <ion-slides pager="true">
             <ion-slide *ngFor="let foto of troca.Fotos">
                 <img src="{{ foto.url }}"/>

@@ -20,12 +20,12 @@ export class DetalhesDaTroca {
     }
 
     MarcarInteresse(proposta: any, usuario: Usuario){
+        console.log(usuario);
         return new Promise((resolve, reject) => {
             let url = this.API_URL + 'MarcarInteresse';
             let parametros = { id: proposta.Id, usuario: usuario };
 
             this.http.post(url, parametros).subscribe((result: any) => {
-              console.log(result);
             }, (error) => {
               reject(error);
             });
