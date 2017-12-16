@@ -14,13 +14,14 @@
 
 <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let troca of trocas" (click)="itemSelected(troca)">
+      <p> Olá {{ usuario.id + " " + usuario.nome }}</p>
+      <button ion-item *ngFor="let troca of trocas" (click)="itemSelected(troca, usuario)">
         <ion-card>
           <ion-card-header>
-            <img [src]="obterFoto(troca.fotos)"/>
+            <img [src]="helper.obterFoto(troca.Fotos)"/>
             <div>
               <p>Benefícios:</p>
-              <ul *ngFor="let b of troca.beneficios" >
+              <ul *ngFor="let b of troca.Beneficios" >
                 <li>{{ b }}</li>
               </ul>
             </div>
@@ -28,16 +29,16 @@
           <ion-card-content>
             <div>
               <p>Em troca de:</p>
-              {{ troca.necessidade }}
+              {{ troca.Necessidade }}
             </div>
             <div>
               <div>
                 <p>Solicitante:</p>
-                {{ troca.solicitante.nome }}
+                {{ troca.Solicitante.Nome }}
               </div>
             </div>
             <div>
-              <span>{{ troca.distancia }}</span> de você
+              <span>{{ troca.Distancia }}</span> de você
             </div>
           </ion-card-content>
         </ion-card>
