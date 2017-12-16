@@ -15,16 +15,18 @@ import { Usuario } from '../../app/api/usuario';
 
 export class HomePage {
   trocas: any;
-  public mostrarBarraDePesquisa: boolean = false;
   usuario: any;
+  public mostrarBarraDePesquisa: boolean = false;
 
   constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
+    this.helper = helper;
     this.usuario = new Usuario();
+
+    window.localStorage.setItem("usuario.id", this.usuario.id);
+    window.localStorage.setItem("usuario.nome", this.usuario.nome);
+
     new TrocaApi(http).obter().then(trocas => {
-      window.localStorage.setItem("usuario.id", this.usuario.id);
-      window.localStorage.setItem("usuario.nome", this.usuario.nome);
       this.trocas = trocas;
-      this.helper = helper;
     });
   }
 
