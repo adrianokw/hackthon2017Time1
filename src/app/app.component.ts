@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { PropostasDoMeuInteressePage } from '../pages/propostasdemeuinteresse/propostasdemeuinteresse';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,10 +22,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Propostas Sociais', component: HomePage },
-      { title: 'Minhas Propostas Sociais', component: HomePage },
-      { title: 'Propostas de que sou Guardião', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Propostas sociais', component: HomePage },
+      { title: 'Minhas propostas sociais', component: HomePage },
+      { title: 'Propostas de meu interesse', component: PropostasDoMeuInteressePage },
     ];
 
     this.nomeDoUsuario = window.localStorage.getItem('nome');

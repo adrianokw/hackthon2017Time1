@@ -19,11 +19,14 @@ export class DetalhesDaTroca {
         this.usuario = navParams.get('usuario');
     }
 
-    MarcarInteresse(proposta: any, usuario: Usuario){
-        console.log(usuario);
+    MarcarInteresse(proposta: any){
+        let id = window.localStorage.getItem("usuario.id");
+        let nome = window.localStorage.getItem("usuario.nome");
+  
+        
         return new Promise((resolve, reject) => {
             let url = this.API_URL + 'MarcarInteresse';
-            let parametros = { id: proposta.Id, usuario: usuario };
+            let parametros = { id: proposta.Id, usuario: {id: id, nome: nome} };
 
             this.http.post(url, parametros).subscribe((result: any) => {
             }, (error) => {
