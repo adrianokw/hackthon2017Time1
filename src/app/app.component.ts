@@ -13,6 +13,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
+  nomeDoUsuario: String;
 
   pages: Array<{title: string, component: any}>;
 
@@ -27,6 +28,7 @@ export class MyApp {
       { title: 'List', component: ListPage }
     ];
 
+    this.nomeDoUsuario = window.localStorage.getItem('nome');
   }
 
   initializeApp() {
