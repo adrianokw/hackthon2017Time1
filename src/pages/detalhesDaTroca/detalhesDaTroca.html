@@ -26,7 +26,7 @@
         </ul>
     </div>
     <p>Em troca de: {{ troca.Necessidade }}</p>
-    <p>Solicitante: {{ troca.Solicitante.Nome }} (a {{ troca.Distancia }} de você</p>
+    <p>Solicitante: {{ troca.Solicitante.nome }} (a {{ troca.distancia }} de você</p>
     <div class="show-list-numbers-and-dots">
         Condições:
         <ul>
@@ -36,10 +36,10 @@
     <div class="show-list-numbers-and-dots">
         Tipo:
         <ul>
-            <li *ngFor="let tipo of troca.Tipos">{{ tipo }}</li>
+            <li *ngFor="let tipo of troca.Tipo">{{ tipo }}</li>
         </ul>
     </div>
-    <p>{{ troca.Local.Endereco }}
+    <p>{{ troca.Local.Local }}
         <button class="">Abrir endereço no mapa</button>
     </p>
     <button class="" (click)="MarcarInteresse(troca, usuario)">Tenho interesse</button>
