@@ -20,28 +20,32 @@
       <button ion-item *ngFor="let troca of trocas" (click)="itemSelected(troca, usuario)">
         <ion-card>
           <ion-card-header>
-            <p class="titulo u-caixa-alta">Benefícios:</p>
             <img [src]="helper.obterFoto(troca.Fotos)"/>
             <div class="card-header-title-group">
-              <ul class="list-card">
-                <li class="list-card-item" *ngFor="let b of troca.Beneficios" >{{ b }}</li>
-              </ul>
+
+            <div class="u-alinhado-ao-centro">
+              <div class="titulo titulo-3 u-remover-margem u-remover-padding u-texto-branco">
+                {{ troca.Solicitante.Nome }} EE Domingos Gonçalves Gomes
+              </div>
+              <p class="titulo titulo-2 u-caixa-alta u-texto-laranja">Precisa da sua ajuda para:</p>
+              <h2 class="titulo titulo-2 u-remover-margem u-remover-padding u-texto-branco">
+                {{ troca.Necessidade }}
+              </h2>
+              <p class="u-margem">
+                  <span>
+                    <img src="assets/imgs/map.svg" alt="" class="imagem imagem-16 u-inline local">
+                  </span>
+                  <span class="u-block u-texto-branco"><strong>{{ troca.Distancia }} 300m</strong> de você</span>
+              </p>
             </div>
+          </div>
           </ion-card-header>
           <ion-card-content>
-            <p class="subtitulo subtitulo 6">Em troca de:</p>
-            <h2 class="titulo titulo-2">
-              {{ troca.Necessidade }}
-            </h2>
-            <div>
-              <div>
-                <p>Solicitante:</p>
-                {{ troca.Solicitante.Nome }}
-              </div>
-            </div>
-            <div>
-              <span>{{ troca.Distancia }}</span> de você
-            </div>
+            <p class="titulo u-caixa-alta">Ajudando você pode:</p>
+            <ul class="list-card">
+              <li class="list-card-item" *ngFor="let b of troca.Beneficios" >{{ b }}</li>
+            </ul>
+            <button ion-button full color="secondary">Quero ajudar</button>
           </ion-card-content>
         </ion-card>
       </button>

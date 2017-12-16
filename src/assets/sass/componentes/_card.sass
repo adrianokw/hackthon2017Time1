@@ -13,17 +13,20 @@
             opacity: .3
             background-blend-mode: multiply
 
+        .local
+            opacity: 1
+            vertical-align: middle
+
         & > div
             background-color: $cor-branca
 
     .card-header-title-group
         position: absolute
-        margin: 1rem
         z-index: 2
         color: $cor-branca
-        top: 0
+        top: 50%
         left: 0
         background-color: transparent !important
-
-        .titulo
-            color: $cor-secundaria
+        box-sizing: border-box
+        width: 100%
+        transform: translateY(-50%)
