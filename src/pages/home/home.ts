@@ -2,33 +2,38 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TrocaApi } from '../../app/api/troca.api';
 import { DetalhesDaTroca } from '../detalhesDaTroca/detalhesDaTroca';
+import { Http } from '@angular/http'
+import { Helper } from '../../app/api/helper'
+import { Usuario } from '../../app/api/usuario';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [Helper]
 })
+
 export class HomePage {
   trocas: any;
+  usuario: any;
 
-  constructor(public navCtrl: NavController) {
-    this.trocas = new TrocaApi().obter();
+  constructor(public navCtrl: NavController, public http: Http, public helper: Helper) {
+    this.usuario = new Usuario();
+    new TrocaApi(http).obter().then(trocas => {
+      console.log('asdfasdfasdfasdfasdf');
+      this.trocas = trocas;
+      this.helper = helper;
+    });
   }
 
   pesquisar(ev: any) {
-    let val = ev.target.value;
+    // let val = ev.target.value;
   }
 
-  obterFoto(fotos: any[]) {
-    if(fotos) {
-      let fotoPrincipal = fotos.find(foto => foto.principal)
-      return fotoPrincipal.url
-    }
-    return '';
-  }
-
-  itemSelected(item: string) {
+  itemSelected(troca: string, usuario: Usuario) {
+    console.log(troca);
     this.navCtrl.push(DetalhesDaTroca,{
-      item: item
+      item: troca,
+      usuario: usuario
     });
   }
 }

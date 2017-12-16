@@ -9,38 +9,38 @@
 
 <ion-content padding="true" class="has-header">
     <div>
+        <p>Foto </p>
         <ion-slides pager="true">
-            <ion-slide *ngFor="let foto of troca.fotos">
-                <img src="{{foto.url}}"/>
+            <ion-slide *ngFor="let foto of troca.Fotos">
+                <img src="{{ foto.url }}"/>
             </ion-slide>
         </ion-slides>
     </div>
-    <!-- <img src="{{obterFoto(troca.fotos)}}"/> -->
     <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
         <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
     </div>
     <div class="show-list-numbers-and-dots">
         <span style="color:#777;">Benefícios:</span>
         <ul>
-            <li *ngFor="let beneficio of troca.beneficios">{{ beneficio }}</li>
+            <li *ngFor="let beneficio of troca.Beneficios">{{ beneficio }}</li>
         </ul>
     </div>
-    <p><span style="color:#777;">Em troca de:</span> {{ troca.necessidade }}</p>
-    <p><span style="color:#777;">Solicitante:</span> {{ troca.solicitante.nome }} (a {{ troca.distancia }} de você</p>
+    <p><span style="color:#777;">Em troca de:</span> {{ troca.Necessidade }}</p>
+    <p><span style="color:#777;">Solicitante:</span> {{ troca.Solicitante.Nome }} (a {{ troca.Distancia }} de você</p>
     <div class="show-list-numbers-and-dots">
         <span style="color:#777;">Condições:</span>
         <ul>
-            <li *ngFor="let condicao of troca.condicoes">{{ condicao }}</li>
+            <li *ngFor="let condicao of troca.Condicoes">{{ condicao }}</li>
         </ul>
     </div>
     <div class="show-list-numbers-and-dots">
         <span style="color:#777;">Tipo:</span>
         <ul>
-            <li *ngFor="let tipo of troca.tipos">{{ tipo }}</li>
+            <li *ngFor="let tipo of troca.Tipos">{{ tipo }}</li>
         </ul>
     </div>
-    <p>{{ troca.local.endereco }}
+    <p>{{ troca.Local.Endereco }}
         <button class="">Abrir endereço no mapa</button>
     </p>
-    <button class="">Aceitar</button>
+    <button class="" (click)="MarcarInteresse(troca, usuario)">Tenho interesse</button>
 </ion-content>
