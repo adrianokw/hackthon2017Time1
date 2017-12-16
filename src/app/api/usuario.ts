@@ -1,7 +1,7 @@
 export class Usuario{
-    id: any;
-    nome: any;
-    
+    public id: any;
+    public nome: any;
+
     constructor(){
         this.id = this.obterId();
         this.nome = "Carlos Alberto de Nobrega";

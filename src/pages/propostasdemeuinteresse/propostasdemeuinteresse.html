@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Troca</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding="true" class="has-header">
+    <!-- <div>
+        <p>Foto {{ troca.propostasocial.Id }}</p>
+        <ion-slides pager="true">
+            <ion-slide *ngFor="let foto of troca.propostasocial.Fotos">
+                <img src="{{ foto.url }}"/>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
+        <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+    </div>
+    <div class="show-list-numbers-and-dots">
+        <span style="color:#777;">Benefícios:</span>
+        <ul>
+            <li *ngFor="let beneficio of troca.propostasocial.Beneficios">{{ beneficio }}</li>
+        </ul>
+    </div>
+    <p><span style="color:#777;">Em troca de:</span> {{ troca.propostasocial.Necessidade }}</p>
+    <p><span style="color:#777;">Solicitante:</span> {{ troca.propostasocial.Solicitante.Nome }} (a {{ troca.propostasocial.Distancia }} de você</p>
+    <div class="show-list-numbers-and-dots">
+        <span style="color:#777;">Condições:</span>
+        <ul>
+            <li *ngFor="let condicao of troca.propostasocial.Condicoes">{{ propostasocial.condicao }}</li>
+        </ul>
+    </div>
+    <div class="show-list-numbers-and-dots">
+        <span style="color:#777;">Tipo:</span>
+        <ul>
+            <li *ngFor="let tipo of troca.propostasocial.Tipos">{{ propostasocial.tipo }}</li>
+        </ul>
+    </div>
+    <p>{{ troca.propostasocial.Local.Endereco }}
+        <button class="">Abrir endereço no mapa</button>
+    </p> -->
+    <button class="" (click)="MarcarInteresse(troca, usuario)">Tenho interesse</button>
+</ion-content>
