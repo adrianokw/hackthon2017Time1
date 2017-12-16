@@ -3,13 +3,20 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Troca</ion-title>
+        <ion-title>
+            <span class="u-texto-branco">
+                Proposta social
+
+            </span>
+        </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding="true" class="has-header">
     <div>
-        <p>Foto {{ troca.Id }}</p>
+        <h3 class="titulo titulo-3 u-remover-margem u-remover-padding">{{ troca.Solicitante.Nome }} está precisando de:</h3>
+        <h2 class="titulo titulo-2 u-remover-margem u-remover-padding u-texto-primaria">{{ troca.Necessidade }}</h2>
+        <br />
         <ion-slides pager="true">
             <ion-slide *ngFor="let foto of troca.Fotos">
                 <img src="{{ foto.url }}"/>
@@ -20,27 +27,32 @@
         <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
     </div>
     <div class="show-list-numbers-and-dots">
-        Benefícios:
-        <ul>
-            <li *ngFor="let beneficio of troca.Beneficios">{{ beneficio }}</li>
+        <h5 class="titulo is-5 is-uppercase">
+            Benefícios:
+        </h5>
+        <ul class="list-card">
+            <li class="list-card-items" *ngFor="let beneficio of troca.Beneficios">{{ beneficio }}</li>
         </ul>
     </div>
-    <p>Em troca de: {{ troca.Necessidade }}</p>
-    <p>Solicitante: {{ troca.Solicitante.Nome }} (a {{ troca.Distancia }} de você</p>
+    <p>{{ troca.Distancia }} de você</p>
     <div class="show-list-numbers-and-dots">
+        <h5 class="titulo is-5 is-uppercase">
         Condições:
-        <ul>
-            <li *ngFor="let condicao of troca.Condicoes">{{ condicao }}</li>
+        </h5>
+        <ul class="list-card">
+            <li class="list-card-items" *ngFor="let condicao of troca.Condicoes">{{ condicao }}</li>
         </ul>
     </div>
     <div class="show-list-numbers-and-dots">
+        <h5 class="titulo is-5 is-uppercase">
         Tipo:
-        <ul>
-            <li *ngFor="let tipo of troca.Tipos">{{ tipo }}</li>
+        </h5>
+        <ul class="list-card">
+            <li class="list-card-items" *ngFor="let tipo of troca.Tipos">{{ tipo }}</li>
         </ul>
     </div>
     <p>{{ troca.Local.Endereco }}
-        <button class="">Abrir endereço no mapa</button>
+        <button ion-button color="secondary" outline full icon-right><ion-icon name="map"></ion-icon> Abrir endereço no mapa</button>
     </p>
-    <button class="" (click)="MarcarInteresse(troca, usuario)">Tenho interesse</button>
+    <button ion-button color="secondary" full icon-right (click)="MarcarInteresse(troca, usuario)"> Quero ajudar <ion-icon name="thumbs-up"></ion-icon></button>
 </ion-content>
